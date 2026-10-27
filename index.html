@@ -159,7 +159,7 @@
       top: -2px;
     }
 
-    /* Personal Photos Grid (Photos 1 - 8) - Perfect Squares with Popped Styling */
+    /* Personal Photos Grid (Photos 1 - 8) - Center-Cropped True Squares */
     .personal-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -181,23 +181,28 @@
     }
 
     .square-img-container {
+      position: relative;
       width: 100%;
-      aspect-ratio: 1 / 1;
+      padding-top: 100%; /* Forces exact 1:1 square ratio frame */
       overflow: hidden;
       border-radius: 6px;
       background: #eae6db;
     }
 
     .square-img-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Automatically crops rectangles into center-focused squares */
+      object-fit: cover; /* Center-crops image to fill frame without stretching */
+      object-position: center;
       display: block;
       transition: transform 0.3s ease;
     }
 
     .square-img-container img:hover {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
 
     /* Food Gallery Grid (Photos 9 - 33) */
@@ -352,78 +357,70 @@
         </section>
       </main>
 
-      <!-- Right Column: Personal Photos (Photos 1 - 8 in Perfect Squares) -->
+      <!-- Right Column: Personal Photos (Photos 1 - 8 in Center-Cropped Squares) -->
       <aside>
         <div class="personal-grid">
           
-          <!-- Photo 1 -->
           <div class="square-card">
             <a href="1.jpg" target="_blank">
               <div class="square-img-container">
-                <img src="1.jpg" alt="Personal Photo 1" loading="lazy" width="800" height="800">
+                <img src="1.jpg" alt="Personal Photo 1" loading="lazy">
               </div>
             </a>
           </div>
 
-          <!-- Photo 2 -->
           <div class="square-card">
             <a href="2.jpg" target="_blank">
               <div class="square-img-container">
-                <img src="2.jpg" alt="Personal Photo 2" loading="lazy" width="800" height="800">
+                <img src="2.jpg" alt="Personal Photo 2" loading="lazy">
               </div>
             </a>
           </div>
 
-          <!-- Photo 3 -->
           <div class="square-card">
             <a href="3.jpg" target="_blank">
               <div class="square-img-container">
-                <img src="3.jpg" alt="Personal Photo 3" loading="lazy" width="800" height="800">
+                <img src="3.jpg" alt="Personal Photo 3" loading="lazy">
               </div>
             </a>
           </div>
 
-          <!-- Photo 4 -->
           <div class="square-card">
             <a href="4.jpg" target="_blank">
               <div class="square-img-container">
-                <img src="4.jpg" alt="Personal Photo 4" loading="lazy" width="800" height="800">
+                <img src="4.jpg" alt="Personal Photo 4" loading="lazy">
               </div>
             </a>
           </div>
 
-          <!-- Photo 5 -->
           <div class="square-card">
             <a href="5.jpg" target="_blank">
               <div class="square-img-container">
-                <img src="5.jpg" alt="Personal Photo 5" loading="lazy" width="800" height="800">
+                <img src="5.jpg" alt="Personal Photo 5" loading="lazy">
               </div>
             </a>
           </div>
 
-          <!-- Photo 6 -->
           <div class="square-card">
             <a href="6.jpg" target="_blank">
               <div class="square-img-container">
-                <img src="6.jpg" alt="Personal Photo 6" loading="lazy" width="800" height="800">
+                <img src="6.jpg" alt="Personal Photo 6" loading="lazy">
               </div>
             </a>
           </div>
 
-          <!-- Photo 7 -->
           <div class="square-card">
             <a href="7.jpg" target="_blank">
               <div class="square-img-container">
-                <img src="7.jpg" alt="Personal Photo 7" loading="lazy" width="800" height="800">
+                <img src="7.jpg" alt="Personal Photo 7" loading="lazy">
               </div>
             </a>
           </div>
 
-          <!-- Photo 8 -->
           <div class="square-card">
             <a href="8.jpg" target="_blank">
               <div class="square-img-container">
-                <img src="8.jpg" alt="Personal Photo 8" loading="lazy" width="800" height="800">
+                <img src="8.jpg" alt="Personal Photo 8" loading="lazy">
               </div>
             </a>
           </div>
@@ -454,11 +451,11 @@
 
       <div class="gallery-grid">
         
-        <!-- Food Card 9 -->
+        <!-- Food Cards 9 to 33 -->
         <div class="gallery-card">
           <a href="9.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="9.jpg" alt="Culinary Dish 9" loading="lazy" width="800" height="800">
+              <img src="9.jpg" alt="Culinary Dish 9" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -468,11 +465,10 @@
           </div>
         </div>
 
-        <!-- Food Card 10 -->
         <div class="gallery-card">
           <a href="10.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="10.jpg" alt="Culinary Dish 10" loading="lazy" width="800" height="800">
+              <img src="10.jpg" alt="Culinary Dish 10" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -482,11 +478,10 @@
           </div>
         </div>
 
-        <!-- Food Card 11 -->
         <div class="gallery-card">
           <a href="11.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="11.jpg" alt="Culinary Dish 11" loading="lazy" width="800" height="800">
+              <img src="11.jpg" alt="Culinary Dish 11" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -496,11 +491,10 @@
           </div>
         </div>
 
-        <!-- Food Card 12 -->
         <div class="gallery-card">
           <a href="12.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="12.jpg" alt="Culinary Dish 12" loading="lazy" width="800" height="800">
+              <img src="12.jpg" alt="Culinary Dish 12" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -510,11 +504,10 @@
           </div>
         </div>
 
-        <!-- Food Card 13 -->
         <div class="gallery-card">
           <a href="13.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="13.jpg" alt="Culinary Dish 13" loading="lazy" width="800" height="800">
+              <img src="13.jpg" alt="Culinary Dish 13" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -524,11 +517,10 @@
           </div>
         </div>
 
-        <!-- Food Card 14 -->
         <div class="gallery-card">
           <a href="14.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="14.jpg" alt="Culinary Dish 14" loading="lazy" width="800" height="800">
+              <img src="14.jpg" alt="Culinary Dish 14" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -538,11 +530,10 @@
           </div>
         </div>
 
-        <!-- Food Card 15 -->
         <div class="gallery-card">
           <a href="15.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="15.jpg" alt="Culinary Dish 15" loading="lazy" width="800" height="800">
+              <img src="15.jpg" alt="Culinary Dish 15" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -552,11 +543,10 @@
           </div>
         </div>
 
-        <!-- Food Card 16 -->
         <div class="gallery-card">
           <a href="16.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="16.jpg" alt="Culinary Dish 16" loading="lazy" width="800" height="800">
+              <img src="16.jpg" alt="Culinary Dish 16" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -566,11 +556,10 @@
           </div>
         </div>
 
-        <!-- Food Card 17 -->
         <div class="gallery-card">
           <a href="17.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="17.jpg" alt="Culinary Dish 17" loading="lazy" width="800" height="800">
+              <img src="17.jpg" alt="Culinary Dish 17" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -580,11 +569,10 @@
           </div>
         </div>
 
-        <!-- Food Card 18 -->
         <div class="gallery-card">
           <a href="18.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="18.jpg" alt="Culinary Dish 18" loading="lazy" width="800" height="800">
+              <img src="18.jpg" alt="Culinary Dish 18" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -594,11 +582,10 @@
           </div>
         </div>
 
-        <!-- Food Card 19 -->
         <div class="gallery-card">
           <a href="19.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="19.jpg" alt="Culinary Dish 19" loading="lazy" width="800" height="800">
+              <img src="19.jpg" alt="Culinary Dish 19" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -608,11 +595,10 @@
           </div>
         </div>
 
-        <!-- Food Card 20 -->
         <div class="gallery-card">
           <a href="20.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="20.jpg" alt="Culinary Dish 20" loading="lazy" width="800" height="800">
+              <img src="20.jpg" alt="Culinary Dish 20" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -622,11 +608,10 @@
           </div>
         </div>
 
-        <!-- Food Card 21 -->
         <div class="gallery-card">
           <a href="21.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="21.jpg" alt="Culinary Dish 21" loading="lazy" width="800" height="800">
+              <img src="21.jpg" alt="Culinary Dish 21" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -636,11 +621,10 @@
           </div>
         </div>
 
-        <!-- Food Card 22 -->
         <div class="gallery-card">
           <a href="22.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="22.jpg" alt="Culinary Dish 22" loading="lazy" width="800" height="800">
+              <img src="22.jpg" alt="Culinary Dish 22" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -650,11 +634,10 @@
           </div>
         </div>
 
-        <!-- Food Card 23 -->
         <div class="gallery-card">
           <a href="23.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="23.jpg" alt="Culinary Dish 23" loading="lazy" width="800" height="800">
+              <img src="23.jpg" alt="Culinary Dish 23" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -664,11 +647,10 @@
           </div>
         </div>
 
-        <!-- Food Card 24 -->
         <div class="gallery-card">
           <a href="24.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="24.jpg" alt="Culinary Dish 24" loading="lazy" width="800" height="800">
+              <img src="24.jpg" alt="Culinary Dish 24" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -678,11 +660,10 @@
           </div>
         </div>
 
-        <!-- Food Card 25 -->
         <div class="gallery-card">
           <a href="25.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="25.jpg" alt="Culinary Dish 25" loading="lazy" width="800" height="800">
+              <img src="25.jpg" alt="Culinary Dish 25" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -692,11 +673,10 @@
           </div>
         </div>
 
-        <!-- Food Card 26 -->
         <div class="gallery-card">
           <a href="26.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="26.jpg" alt="Culinary Dish 26" loading="lazy" width="800" height="800">
+              <img src="26.jpg" alt="Culinary Dish 26" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -706,11 +686,10 @@
           </div>
         </div>
 
-        <!-- Food Card 27 -->
         <div class="gallery-card">
           <a href="27.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="27.jpg" alt="Culinary Dish 27" loading="lazy" width="800" height="800">
+              <img src="27.jpg" alt="Culinary Dish 27" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -720,11 +699,10 @@
           </div>
         </div>
 
-        <!-- Food Card 28 -->
         <div class="gallery-card">
           <a href="28.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="28.jpg" alt="Culinary Dish 28" loading="lazy" width="800" height="800">
+              <img src="28.jpg" alt="Culinary Dish 28" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -734,11 +712,10 @@
           </div>
         </div>
 
-        <!-- Food Card 29 -->
         <div class="gallery-card">
           <a href="29.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="29.jpg" alt="Culinary Dish 29" loading="lazy" width="800" height="800">
+              <img src="29.jpg" alt="Culinary Dish 29" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -748,11 +725,10 @@
           </div>
         </div>
 
-        <!-- Food Card 30 -->
         <div class="gallery-card">
           <a href="30.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="30.jpg" alt="Culinary Dish 30" loading="lazy" width="800" height="800">
+              <img src="30.jpg" alt="Culinary Dish 30" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -762,11 +738,10 @@
           </div>
         </div>
 
-        <!-- Food Card 31 -->
         <div class="gallery-card">
           <a href="31.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="31.jpg" alt="Culinary Dish 31" loading="lazy" width="800" height="800">
+              <img src="31.jpg" alt="Culinary Dish 31" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -776,11 +751,10 @@
           </div>
         </div>
 
-        <!-- Food Card 32 -->
         <div class="gallery-card">
           <a href="32.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="32.jpg" alt="Culinary Dish 32" loading="lazy" width="800" height="800">
+              <img src="32.jpg" alt="Culinary Dish 32" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">
@@ -790,11 +764,10 @@
           </div>
         </div>
 
-        <!-- Food Card 33 -->
         <div class="gallery-card">
           <a href="33.jpg" target="_blank">
             <div class="square-img-container">
-              <img src="33.jpg" alt="Culinary Dish 33" loading="lazy" width="800" height="800">
+              <img src="33.jpg" alt="Culinary Dish 33" loading="lazy">
             </div>
           </a>
           <div class="gallery-card-body">

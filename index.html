@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef Jamie Gilhen | Freelance Relief Yacht Chef</title>
+  
+  <!-- Google Fonts: EB Garamond & Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Dark Theme (Default: Deep Navy Linen & Copper) */
+      --bg-color: #0b1320;
+      --card-bg: #121c2d;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-copper: #c87d55;
+      --accent-copper-hover: #db8e64;
+      --border-color: #1e2d42;
+      --grid-border: #2a3c54;
+      --header-bg: #070d17;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    [data-theme="light"] {
+      /* Light Theme (Cream Linen & Burnished Copper) */
+      --bg-color: #f7f5f0;
+      --card-bg: #ffffff;
+      --text-color: #1c2430;
+      --text-muted: #4a5568;
+      --accent-copper: #a65b32;
+      --accent-copper-hover: #8c4a26;
+      --border-color: #e2e8f0;
+      --grid-border: #cbd5e1;
+      --header-bg: #ede8df;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid var(--accent-copper);
+      color: var(--accent-copper);
+      padding: 6px 14px;
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--accent-copper);
+      color: #fff;
+    }
+
+    /* Header Section */
+    header {
+      padding: 40px 0 30px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-color);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      color: var(--accent-copper);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .availability {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Specs Grid (5 Columns) */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin: 35px 0 45px;
+    }
+
+    .spec-card {
+      background: var(--card-bg);
+      border: 1px solid var(--grid-border);
+      padding: 18px 15px;
+      font-size: 1rem;
+      line-height: 1.4;
+      min-height: 110px;
+      display: flex;
+      align-items: center;
+    }
+
+    .spec-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .spec-card li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .spec-card li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: var(--accent-copper);
+    }
+
+    /* Main Content Layout (Split View) */
+    .content-split {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--accent-copper);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text-color);
+    }
+
+    .specialty-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .specialty-list li {
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .specialty-list li::before {
+      content: "•";
+      color: var(--accent-copper);
+      font-size: 1.4rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+
+    /* Inline Personal Photo Grid */
+    .personal-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .personal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 10px;
+    }
+
+    .personal-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--border-color);
+    }
+
+    .personal-caption {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* Side Photo Stack (Professional / Action Photos) */
+    .photo-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .photo-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 12px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--border-color);
+      transition: opacity 0.2s ease;
+    }
+
+    .photo-card img:hover {
+      opacity: 0.9;
+    }
+
+    .photo-caption {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .photo-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--accent-copper);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .photo-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Bottom Full-Width Food Gallery */
+    .gallery-section {
+      border-top: 2px solid var(--border-color);
+      padding-top: 40px;
+      margin-top: 20px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .gallery-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--border-color);
+    }
+
+    .gallery-card-body {
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .gallery-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--accent-copper);
+      margin-bottom: 4px;
+    }
+
+    .gallery-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 900px) {
+      .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .content-split {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .personal-photos {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Utility Bar / Mode Switcher -->
+    <div class="top-bar">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">Switch Theme</button>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+      <h1>Chef Jamie Gilhen</h1>
+      <div class="subtitle">Freelance Relief Yacht Chef Based in Southeast Asia</div>
+      <div class="availability">Available on short notice for trips up to 2 weeks</div>
+    </header>
+
+    <!-- Specs Grid -->
+    <div class="specs-grid">
+      <div class="spec-card">
+        18 years of professional chef experience
+      </div>
+      <div class="spec-card">
+        Yacht & private chef since 2018
+      </div>
+      <div class="spec-card">
+        Sail & motor yachts from 35–50 meters
+      </div>
+      <div class="spec-card">
+        <ul>
+          <li>2 yr culinary diploma</li>
+          <li>Ship's Cook</li>
+          <li>Red Seal</li>
+        </ul>
+      </div>
+      <div class="spec-card">
+        Passport: Canadian
+      </div>
+    </div>
+
+    <!-- Main Content & Side Photo Column -->
+    <div class="content-split">
+      
+      <!-- Left Column: Core Copy -->
+      <main>
+        <section>
+          <h2>I Cook for the Guest</h2>
+          <p>
+            My background spans high-end hotels, chef-driven tasting-menu restaurants, and private yachts—including serving on motor yacht <em>Mia Copa</em>, one of the largest sport fishers in the world. Experience includes managing remote provisioning from Alaska down to Costa Rica on the West Coast, as well as across the East Coast from Newfoundland and the St. Lawrence down to the deepest Caribbean. This background provides a wide repertoire of culinary execution rooted in classical technique while remaining fully in touch with current trends.
+          </p>
+          <p>
+            Accustomed to shifting conditions and unscripted operational demands, I deliver refined, approachable food that nods to the classics without being precious—including adapting to specific culinary styles from a guest's favorite restaurants. I handle specialized requirements—including gluten-free, dairy-free, and specific dietary needs—seamlessly, maintaining full flavor and execution regardless of constraints.
+          </p>
+        </section>
+
+        <section>
+          <h2>Areas of Specialty</h2>
+          <ul class="specialty-list">
+            <li><strong>Regional Cuisines:</strong> A large repertoire spanning Italian, French, Spanish, English, German, American, Mexican, Chinese, Japanese, Thai, and Middle Eastern.</li>
+            <li><strong>Seafood & Meats:</strong> High-level sourcing, preparation, and execution of fresh coastal seafood and prime cuts.</li>
+            <li><strong>Guest Restaurant Duplication:</strong> Learning guests' favorite restaurants to reproduce and duplicate specific signature meals and styles directly on board.</li>
+            <li><strong>Adaptability & Trends:</strong> Execution rooted in classical technique while staying current with modern food trends.</li>
+            <li><strong>Specialized Diets:</strong> Gluten-free, dairy-free, and custom nutritional requirements handled seamlessly without loss of flavor or execution.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Personal Background</h2>
+          <p>
+            Formal culinary training at the Culinary Institute of Canada combined with nearly two decades of high-level professional cooking across luxury hotels, private estates, and yachts. Operational mindset grounded in sea time, strict food safety controls, and clean execution under pressure.
+          </p>
+          
+          <!-- Personal Area Images -->
+          <div class="personal-photos">
+            <div class="personal-card">
+              <a href="images/7658.jpg" target="_blank">
+                <img src="images/7658.jpg" alt="Sailing and On-Water Operations" loading="lazy" width="800" height="600">
+              </a>
+              <div class="personal-caption"><strong>On Deck:</strong> Practical maritime experience and handling under sail.</div>
+            </div>
+            <div class="personal-card">
+              <a href="images/7669.jpg" target="_blank">
+                <img src="images/7669.jpg" alt="Physical Training and Conditioning" loading="lazy" width="800" height="600">
+              </a>
+              <div class="personal-caption"><strong>Discipline:</strong> Maintaining physical conditioning and focus.</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Living in Southeast Asia</h2>
+          <p>
+            Based in Ho Chi Minh City (Saigon), providing rapid-response availability for relief contracts across Southeast Asia, the Indian Ocean, and global relocations. Active in Muay Thai, tennis, and adventure motorcycling.
+          </p>
+        </section>
+      </main>
+
+      <!-- Right Column: Professional & Action Photos (Sidebar Stack) -->
+      <aside class="photo-stack">
+        
+        <div class="photo-card">
+          <a href="images/7652.jpg" target="_blank">
+            <img src="images/7652.jpg" alt="Chef Jamie Gilhen on Remote Provisioning Route" loading="lazy" width="800" height="600">
+          </a>
+          <div class="photo-caption">
+            <strong>Remote Operations:</strong> Sourcing and galley operations against high-latitude cruising backdrops.
+          </div>
+          <a href="images/7652.jpg" target="_blank" class="photo-link">View Full Image →</a>
+        </div>
+
+        <div class="photo-card">
+          <a href="images/7660.jpg" target="_blank">
+            <img src="images/7660.jpg" alt="Chef Jamie Gilhen on Yacht Deck" loading="lazy" width="800" height="600">
+          </a>
+          <div class="photo-caption">
+            <strong>On Board:</strong> Professional presentation and vessel integration in prime cruising destinations.
+          </div>
+          <a href="images/7660.jpg" target="_blank" class="photo-link">View Full Image →</a>
+        </div>
+
+        <div class="photo-card">
+          <a href="images/7686.jpg" target="_blank">
+            <img src="images/7686.jpg" alt="Catch to Galley Sourcing" loading="lazy" width="800" height="600">
+          </a>
+          <div class="photo-caption">
+            <strong>Catch to Galley:</strong> Direct sourcing and handling of fresh pelagic catch on charter.
+          </div>
+          <a href="images/7686.jpg" target="_blank" class="photo-link">View Full Image →</a>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- Bottom Section: Culinary Photo Gallery -->
+    <section class="gallery-section">
+      <h2>Culinary Execution Gallery</h2>
+      <p style="color: var(--text-muted); font-style: italic;">A selection of plated dishes, seafood sourcing, and custom guest menus executed on board.</p>
+
+      <div class="gallery-grid">
+        
+        <!-- Food Card 1 -->
+        <div class="gallery-card">
+          <a href="images/1.jpg" target="_blank">
+            <img src="images/1.jpg" alt="Coastal Seafood Dish" loading="lazy" width="1200" height="800">
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Local Catch & Citrus Infusion</div>
+            <div class="gallery-desc">Seared local line-caught fish and crudo with tropical salsa, microgreens, and crisp nori accents.</div>
+            <a href="images/1.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 2 -->
+        <div class="gallery-card">
+          <a href="images/7779.jpg" target="_blank">
+            <img src="images/7779.jpg" alt="Canapé and Tartare Selection" loading="lazy" width="1200" height="800">
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Canapé & Tartare Selection</div>
+            <div class="gallery-desc">Refined savory tartare bites paired with crisp seasonal canapés for guest receptions.</div>
+            <a href="images/7779.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 3 -->
+        <div class="gallery-card">
+          <a href="images/7688.jpg" target="_blank">
+            <img src="images/7688.jpg" alt="Deconstructed Chocolate Mousse" loading="lazy" width="1200" height="800">
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Deconstructed Chocolate Mousse</div>
+            <div class="gallery-desc">Rich chocolate mousse served in fine-dining porcelain with house-baked shortbread.</div>
+            <a href="images/7688.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 4 -->
+        <div class="gallery-card">
+          <a href="images/7778.jpg" target="_blank">
+            <img src="images/7778.jpg" alt="Artisanal Lemon Meringue Tarts" loading="lazy" width="1200" height="800">
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Artisanal Lemon Meringue Tarts</div>
+            <div class="gallery-desc">Precision-torched Italian meringue over tart citrus curd and buttery pastry crust.</div>
+            <a href="images/7778.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 5 -->
+        <div class="gallery-card">
+          <a href="images/7691.jpg" target="_blank">
+            <img src="images/7691.jpg" alt="On Board Presentation" loading="lazy" width="1200" height="800">
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Destination Galley Ready</div>
+            <div class="gallery-desc">Seamless integration into high-end private charters and luxury coastal itineraries.</div>
+            <a href="images/7691.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 6 -->
+        <div class="gallery-card">
+          <a href="images/7680.jpg" target="_blank">
+            <img src="images/7680.jpg" alt="Active Fishing Sourcing" loading="lazy" width="1200" height="800">
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Pelagic Sport Fishing</div>
+            <div class="gallery-desc">Sourcing fresh sportfish directly from the deck for immediate preparation on board.</div>
+            <a href="images/7680.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }
+  </script>
+
+</body>
+</html>

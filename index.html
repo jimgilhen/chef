@@ -21,8 +21,8 @@
       --accent-copper: #b2683e;
       --accent-copper-hover: #965431;
       --accent-blue: #233b5a;
-      --border-color: #d8d3c5;
-      --grid-border: #e2ded4;
+      --border-color: #d4cec0;
+      --card-shadow: 0 4px 12px rgba(35, 59, 90, 0.08);
       --font-serif: 'EB Garamond', Georgia, serif;
       --font-heading: 'Cormorant Garamond', Georgia, serif;
     }
@@ -50,7 +50,7 @@
 
     /* Header Section */
     header {
-      padding: 40px 0 30px;
+      padding: 50px 0 30px;
       border-bottom: 1px solid var(--border-color);
       text-align: center;
     }
@@ -89,6 +89,8 @@
     .spec-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
       padding: 22px 15px;
       font-size: 1.15rem;
       font-weight: 600;
@@ -157,7 +159,7 @@
       top: -2px;
     }
 
-    /* Personal Photos Grid (Photos 1 - 8) - Perfect Squares */
+    /* Personal Photos Grid (Photos 1 - 8) - Perfect Squares with Popped Styling */
     .personal-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -167,27 +169,35 @@
     .square-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
       padding: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .square-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(35, 59, 90, 0.12);
     }
 
     .square-img-container {
       width: 100%;
       aspect-ratio: 1 / 1;
       overflow: hidden;
-      border: 1px solid var(--border-color);
+      border-radius: 6px;
       background: #eae6db;
     }
 
     .square-img-container img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: cover; /* Automatically crops rectangles into center-focused squares */
       display: block;
-      transition: opacity 0.2s ease;
+      transition: transform 0.3s ease;
     }
 
     .square-img-container img:hover {
-      opacity: 0.9;
+      transform: scale(1.03);
     }
 
     /* Food Gallery Grid (Photos 9 - 33) */
@@ -207,9 +217,17 @@
     .gallery-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
       padding: 14px;
       display: flex;
       flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(35, 59, 90, 0.12);
     }
 
     .gallery-card-body {
@@ -242,6 +260,7 @@
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      font-weight: 600;
     }
 
     .photo-link:hover {

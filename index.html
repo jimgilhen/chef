@@ -13,31 +13,18 @@
 
   <style>
     :root {
-      /* Dark Theme (Default: Deep Navy Linen & Copper) */
-      --bg-color: #0b1320;
-      --card-bg: #121c2d;
-      --text-color: #e2e8f0;
-      --text-muted: #94a3b8;
-      --accent-copper: #c87d55;
-      --accent-copper-hover: #db8e64;
-      --border-color: #1e2d42;
-      --grid-border: #2a3c54;
-      --header-bg: #070d17;
-      --font-serif: 'EB Garamond', Georgia, serif;
-      --font-heading: 'Cormorant Garamond', Georgia, serif;
-    }
-
-    [data-theme="light"] {
-      /* Light Theme (Cream Linen & Burnished Copper) */
-      --bg-color: #f7f5f0;
+      /* Light Linen, Blue & Copper Color Scheme */
+      --bg-color: #f4f2ec;
       --card-bg: #ffffff;
       --text-color: #1c2430;
-      --text-muted: #4a5568;
-      --accent-copper: #a65b32;
-      --accent-copper-hover: #8c4a26;
-      --border-color: #e2e8f0;
-      --grid-border: #cbd5e1;
-      --header-bg: #ede8df;
+      --text-muted: #5a6578;
+      --accent-copper: #b2683e;
+      --accent-copper-hover: #965431;
+      --accent-blue: #233b5a;
+      --border-color: #d8d3c5;
+      --grid-border: #e2ded4;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
     }
 
     * {
@@ -52,7 +39,6 @@
       font-family: var(--font-serif);
       font-size: 1.125rem;
       line-height: 1.7;
-      transition: background-color 0.3s ease, color 0.3s ease;
       padding-bottom: 60px;
     }
 
@@ -62,45 +48,19 @@
       padding: 0 20px;
     }
 
-    /* Top Utility Bar */
-    .top-bar {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .theme-toggle {
-      background: transparent;
-      border: 1px solid var(--accent-copper);
-      color: var(--accent-copper);
-      padding: 6px 14px;
-      font-family: var(--font-serif);
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .theme-toggle:hover {
-      background: var(--accent-copper);
-      color: #fff;
-    }
-
     /* Header Section */
     header {
       padding: 40px 0 30px;
       border-bottom: 1px solid var(--border-color);
+      text-align: center;
     }
 
     h1 {
       font-family: var(--font-heading);
-      font-size: 3.2rem;
+      font-size: 3.4rem;
       font-weight: 700;
       letter-spacing: 0.5px;
-      color: var(--text-color);
+      color: var(--accent-blue);
       line-height: 1.1;
       margin-bottom: 6px;
     }
@@ -128,13 +88,15 @@
 
     .spec-card {
       background: var(--card-bg);
-      border: 1px solid var(--grid-border);
+      border: 1px solid var(--border-color);
       padding: 18px 15px;
       font-size: 1rem;
       line-height: 1.4;
       min-height: 110px;
       display: flex;
       align-items: center;
+      text-align: center;
+      justify-content: center;
     }
 
     .spec-card ul {
@@ -144,33 +106,55 @@
 
     .spec-card li {
       margin-bottom: 4px;
-      position: relative;
-      padding-left: 12px;
     }
 
-    .spec-card li::before {
-      content: "-";
-      position: absolute;
-      left: 0;
-      color: var(--accent-copper);
+    /* Personal Photos Grid (Photos 1 - 7) */
+    .personal-section {
+      margin-bottom: 50px;
     }
 
-    /* Main Content Layout (Split View) */
-    .content-split {
+    .personal-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 40px;
-      margin-bottom: 60px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 20px;
     }
 
+    .square-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 10px;
+    }
+
+    .square-img-container {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: #eae6db;
+    }
+
+    .square-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s ease;
+    }
+
+    .square-img-container img:hover {
+      opacity: 0.9;
+    }
+
+    /* Main Content Sections */
     section {
       margin-bottom: 40px;
     }
 
     h2 {
       font-family: var(--font-heading);
-      font-size: 2rem;
-      color: var(--accent-copper);
+      font-size: 2.2rem;
+      color: var(--accent-blue);
       border-bottom: 1px solid var(--border-color);
       padding-bottom: 8px;
       margin-bottom: 18px;
@@ -201,83 +185,7 @@
       top: -2px;
     }
 
-    /* Inline Personal Photo Grid */
-    .personal-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .personal-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 10px;
-    }
-
-    .personal-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-      border: 1px solid var(--border-color);
-    }
-
-    .personal-caption {
-      margin-top: 8px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.3;
-    }
-
-    /* Side Photo Stack (Professional / Action Photos) */
-    .photo-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .photo-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 12px;
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-      border: 1px solid var(--border-color);
-      transition: opacity 0.2s ease;
-    }
-
-    .photo-card img:hover {
-      opacity: 0.9;
-    }
-
-    .photo-caption {
-      margin-top: 10px;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    .photo-link {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.85rem;
-      color: var(--accent-copper);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .photo-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Bottom Full-Width Food Gallery */
+    /* Food Gallery Grid (Photos 8 - 33) */
     .gallery-section {
       border-top: 2px solid var(--border-color);
       padding-top: 40px;
@@ -299,14 +207,6 @@
       flex-direction: column;
     }
 
-    .gallery-card img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-      border: 1px solid var(--border-color);
-    }
-
     .gallery-card-body {
       padding-top: 12px;
       display: flex;
@@ -317,7 +217,7 @@
     .gallery-title {
       font-family: var(--font-heading);
       font-size: 1.4rem;
-      color: var(--accent-copper);
+      color: var(--accent-blue);
       margin-bottom: 4px;
     }
 
@@ -329,13 +229,27 @@
       flex-grow: 1;
     }
 
+    .photo-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--accent-copper);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .photo-link:hover {
+      text-decoration: underline;
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 900px) {
       .specs-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .content-split {
-        grid-template-columns: 1fr;
+      .personal-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -346,10 +260,10 @@
       .specs-grid {
         grid-template-columns: 1fr;
       }
-      .gallery-grid {
+      .personal-grid {
         grid-template-columns: 1fr;
       }
-      .personal-photos {
+      .gallery-grid {
         grid-template-columns: 1fr;
       }
       h1 {
@@ -362,11 +276,6 @@
 
   <div class="container">
     
-    <!-- Top Utility Bar / Mode Switcher -->
-    <div class="top-bar">
-      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">Switch Theme</button>
-    </div>
-
     <!-- Header Section -->
     <header>
       <h1>Chef Jamie Gilhen</h1>
@@ -376,15 +285,9 @@
 
     <!-- Specs Grid -->
     <div class="specs-grid">
-      <div class="spec-card">
-        18 years of professional chef experience
-      </div>
-      <div class="spec-card">
-        Yacht & private chef since 2018
-      </div>
-      <div class="spec-card">
-        Sail & motor yachts from 35–50 meters
-      </div>
+      <div class="spec-card">18 years of professional chef experience</div>
+      <div class="spec-card">Yacht & private chef since 2018</div>
+      <div class="spec-card">Sail & motor yachts from 35–50 meters</div>
       <div class="spec-card">
         <ul>
           <li>2 yr culinary diploma</li>
@@ -392,181 +295,475 @@
           <li>Red Seal</li>
         </ul>
       </div>
-      <div class="spec-card">
-        Passport: Canadian
-      </div>
+      <div class="spec-card">Passport: Canadian</div>
     </div>
 
-    <!-- Main Content & Side Photo Column -->
-    <div class="content-split">
+    <!-- Personal Photos Section (Photos 1 - 7) Displayed at the Top in Perfect Squares -->
+    <section class="personal-section">
+      <h2>Background & On-Water Operations</h2>
+      <p style="color: var(--text-muted); font-style: italic;">A look into remote provisioning, maritime operations, and active fieldwork.</p>
       
-      <!-- Left Column: Core Copy -->
-      <main>
-        <section>
-          <h2>I Cook for the Guest</h2>
-          <p>
-            My background spans high-end hotels, chef-driven tasting-menu restaurants, and private yachts—including serving on motor yacht <em>Mia Copa</em>, one of the largest sport fishers in the world. Experience includes managing remote provisioning from Alaska down to Costa Rica on the West Coast, as well as across the East Coast from Newfoundland and the St. Lawrence down to the deepest Caribbean. This background provides a wide repertoire of culinary execution rooted in classical technique while remaining fully in touch with current trends.
-          </p>
-          <p>
-            Accustomed to shifting conditions and unscripted operational demands, I deliver refined, approachable food that nods to the classics without being precious—including adapting to specific culinary styles from a guest's favorite restaurants. I handle specialized requirements—including gluten-free, dairy-free, and specific dietary needs—seamlessly, maintaining full flavor and execution regardless of constraints.
-          </p>
-        </section>
-
-        <section>
-          <h2>Areas of Specialty</h2>
-          <ul class="specialty-list">
-            <li><strong>Regional Cuisines:</strong> A large repertoire spanning Italian, French, Spanish, English, German, American, Mexican, Chinese, Japanese, Thai, and Middle Eastern.</li>
-            <li><strong>Seafood & Meats:</strong> High-level sourcing, preparation, and execution of fresh coastal seafood and prime cuts.</li>
-            <li><strong>Guest Restaurant Duplication:</strong> Learning guests' favorite restaurants to reproduce and duplicate specific signature meals and styles directly on board.</li>
-            <li><strong>Adaptability & Trends:</strong> Execution rooted in classical technique while staying current with modern food trends.</li>
-            <li><strong>Specialized Diets:</strong> Gluten-free, dairy-free, and custom nutritional requirements handled seamlessly without loss of flavor or execution.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Personal Background</h2>
-          <p>
-            Formal culinary training at the Culinary Institute of Canada combined with nearly two decades of high-level professional cooking across luxury hotels, private estates, and yachts. Operational mindset grounded in sea time, strict food safety controls, and clean execution under pressure.
-          </p>
-          
-          <!-- Personal Area Images -->
-          <div class="personal-photos">
-            <div class="personal-card">
-              <a href="7658.jpg" target="_blank">
-                <img src="7658.jpg" alt="Sailing and On-Water Operations" loading="lazy" width="800" height="600">
-              </a>
-              <div class="personal-caption"><strong>On Deck:</strong> Practical maritime experience and handling under sail[span_0](start_span)[span_0](end_span).</div>
-            </div>
-            <div class="personal-card">
-              <a href="7669.jpg" target="_blank">
-                <img src="7669.jpg" alt="Physical Training and Conditioning" loading="lazy" width="800" height="600">
-              </a>
-              <div class="personal-caption"><strong>Discipline:</strong> Maintaining physical conditioning and focus[span_1](start_span)[span_1](end_span).</div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>Living in Southeast Asia</h2>
-          <p>
-            Based in Ho Chi Minh City (Saigon), providing rapid-response availability for relief contracts across Southeast Asia, the Indian Ocean, and global relocations. Active in Muay Thai, tennis, and adventure motorcycling.
-          </p>
-        </section>
-      </main>
-
-      <!-- Right Column: Professional & Action Photos (Sidebar Stack) -->
-      <aside class="photo-stack">
+      <div class="personal-grid">
         
-        <div class="photo-card">
-          <a href="7652.jpg" target="_blank">
-            <img src="7652.jpg" alt="Chef Jamie Gilhen on Remote Provisioning Route" loading="lazy" width="800" height="600">
+        <!-- Personal Photo 1 -->
+        <div class="square-card">
+          <a href="Photos 1.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 1.jpeg" alt="Personal Photo 1" loading="lazy" width="800" height="800">
+            </div>
           </a>
-          <div class="photo-caption">
-            <strong>Remote Operations:</strong> Sourcing and galley operations against high-latitude cruising backdrops[span_2](start_span)[span_2](end_span).
-          </div>
-          <a href="7652.jpg" target="_blank" class="photo-link">View Full Image →</a>
         </div>
 
-        <div class="photo-card">
-          <a href="7660.jpg" target="_blank">
-            <img src="7660.jpg" alt="Chef Jamie Gilhen on Yacht Deck" loading="lazy" width="800" height="600">
+        <!-- Personal Photo 2 -->
+        <div class="square-card">
+          <a href="Photos 2.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 2.jpeg" alt="Personal Photo 2" loading="lazy" width="800" height="800">
+            </div>
           </a>
-          <div class="photo-caption">
-            <strong>On Board:</strong> Professional presentation and vessel integration in prime cruising destinations[span_3](start_span)[span_3](end_span).
-          </div>
-          <a href="7660.jpg" target="_blank" class="photo-link">View Full Image →</a>
         </div>
 
-        <div class="photo-card">
-          <a href="7686.jpg" target="_blank">
-            <img src="7686.jpg" alt="Catch to Galley Sourcing" loading="lazy" width="800" height="600">
+        <!-- Personal Photo 3 -->
+        <div class="square-card">
+          <a href="Photos 3.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 3.jpeg" alt="Personal Photo 3" loading="lazy" width="800" height="800">
+            </div>
           </a>
-          <div class="photo-caption">
-            <strong>Catch to Galley:</strong> Direct sourcing and handling of fresh pelagic catch on charter[span_4](start_span)[span_4](end_span).
-          </div>
-          <a href="7686.jpg" target="_blank" class="photo-link">View Full Image →</a>
         </div>
 
-      </aside>
+        <!-- Personal Photo 4 -->
+        <div class="square-card">
+          <a href="Photos 4.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 4.jpeg" alt="Personal Photo 4" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+        </div>
 
-    </div>
+        <!-- Personal Photo 5 -->
+        <div class="square-card">
+          <a href="Photos 5.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 5.jpeg" alt="Photos 5.jpeg" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+        </div>
 
-    <!-- Bottom Section: Culinary Photo Gallery -->
+        <!-- Personal Photo 6 -->
+        <div class="square-card">
+          <a href="Photos 6.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 6.jpeg" alt="Photos 6.jpeg" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+        </div>
+
+        <!-- Personal Photo 7 -->
+        <div class="square-card">
+          <a href="Photos 7.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 7.jpeg" alt="Photos 7.jpeg" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Professional Copy Sections -->
+    <section>
+      <h2>I Cook for the Guest</h2>
+      <p>
+        My background spans high-end hotels, chef-driven tasting-menu restaurants, and private yachts—including serving on motor yacht <em>Mia Copa</em>, one of the largest sport fishers in the world. Experience includes managing remote provisioning from Alaska down to Costa Rica on the West Coast, as well as across the East Coast from Newfoundland and the St. Lawrence down to the deepest Caribbean. This background provides a wide repertoire of culinary execution rooted in classical technique while remaining fully in touch with current trends.
+      </p>
+      <p>
+        Accustomed to shifting conditions and unscripted operational demands, I deliver refined, approachable food that nods to the classics without being precious—including adapting to specific culinary styles from a guest's favorite restaurants. I handle specialized requirements—including gluten-free, dairy-free, and specific dietary needs—seamlessly, maintaining full flavor and execution regardless of constraints.
+      </p>
+    </section>
+
+    <section>
+      <h2>Areas of Specialty</h2>
+      <ul class="specialty-list">
+        <li><strong>Regional Cuisines:</strong> A large repertoire spanning Italian, French, Spanish, English, German, American, Mexican, Chinese, Japanese, Thai, and Middle Eastern.</li>
+        <li><strong>Seafood & Meats:</strong> High-level sourcing, preparation, and execution of fresh coastal seafood and prime cuts.</li>
+        <li><strong>Guest Restaurant Duplication:</strong> Learning guests' favorite restaurants to reproduce and duplicate specific signature meals and styles directly on board.</li>
+        <li><strong>Adaptability & Trends:</strong> Execution rooted in classical technique while staying current with modern food trends.</li>
+        <li><strong>Specialized Diets:</strong> Gluten-free, dairy-free, and custom nutritional requirements handled seamlessly without loss of flavor or execution.</li>
+      </ul>
+    </section>
+
+    <!-- Bottom Food Gallery (Photos 8 through 33) -->
     <section class="gallery-section">
       <h2>Culinary Execution Gallery</h2>
       <p style="color: var(--text-muted); font-style: italic;">A selection of plated dishes, seafood sourcing, and custom guest menus executed on board.</p>
 
       <div class="gallery-grid">
         
-        <!-- Food Card 1 -->
+        <!-- Loop for Photos 8 to 33 -->
+        <!-- Repeatable template structure with description placeholders -->
+
+        <!-- Food Card 8 -->
         <div class="gallery-card">
-          <a href="1.jpg" target="_blank">
-            <img src="1.jpg" alt="Coastal Seafood Dish" loading="lazy" width="1200" height="800">
+          <a href="Photos 8.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 8.jpeg" alt="Culinary Dish 8" loading="lazy" width="800" height="800">
+            </div>
           </a>
           <div class="gallery-card-body">
-            <div class="gallery-title">Local Catch & Citrus Infusion</div>
-            <div class="gallery-desc">Seared local line-caught fish and crudo with tropical salsa, microgreens, and crisp nori accents[span_5](start_span)[span_5](end_span).</div>
-            <a href="1.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+            <div class="gallery-title">Dish Title 8</div>
+            <div class="gallery-desc">Insert description for photo 8 here.</div>
+            <a href="Photos 8.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
           </div>
         </div>
 
-        <!-- Food Card 2 -->
+        <!-- Food Card 9 -->
         <div class="gallery-card">
-          <a href="7779.jpg" target="_blank">
-            <img src="7779.jpg" alt="Canapé and Tartare Selection" loading="lazy" width="1200" height="800">
+          <a href="Photos 9.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 9.jpeg" alt="Culinary Dish 9" loading="lazy" width="800" height="800">
+            </div>
           </a>
           <div class="gallery-card-body">
-            <div class="gallery-title">Canapé & Tartare Selection</div>
-            <div class="gallery-desc">Refined savory tartare bites paired with crisp seasonal canapés for guest receptions[span_6](start_span)[span_6](end_span).</div>
-            <a href="7779.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+            <div class="gallery-title">Dish Title 9</div>
+            <div class="gallery-desc">Insert description for photo 9 here.</div>
+            <a href="Photos 9.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
           </div>
         </div>
 
-        <!-- Food Card 3 -->
+        <!-- Food Card 10 -->
         <div class="gallery-card">
-          <a href="7688.jpg" target="_blank">
-            <img src="7688.jpg" alt="Deconstructed Chocolate Mousse" loading="lazy" width="1200" height="800">
+          <a href="Photos 10.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 10.jpeg" alt="Culinary Dish 10" loading="lazy" width="800" height="800">
+            </div>
           </a>
           <div class="gallery-card-body">
-            <div class="gallery-title">Deconstructed Chocolate Mousse</div>
-            <div class="gallery-desc">Rich chocolate mousse served in fine-dining porcelain with house-baked shortbread[span_7](start_span)[span_7](end_span).</div>
-            <a href="7688.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+            <div class="gallery-title">Dish Title 10</div>
+            <div class="gallery-desc">Insert description for photo 10 here.</div>
+            <a href="Photos 10.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
           </div>
         </div>
 
-        <!-- Food Card 4 -->
+        <!-- Food Card 11 -->
         <div class="gallery-card">
-          <a href="7778.jpg" target="_blank">
-            <img src="7778.jpg" alt="Artisanal Lemon Meringue Tarts" loading="lazy" width="1200" height="800">
+          <a href="Photos 11.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 11.jpeg" alt="Culinary Dish 11" loading="lazy" width="800" height="800">
+            </div>
           </a>
           <div class="gallery-card-body">
-            <div class="gallery-title">Artisanal Lemon Meringue Tarts</div>
-            <div class="gallery-desc">Precision-torched Italian meringue over tart citrus curd and buttery pastry crust[span_8](start_span)[span_8](end_span).</div>
-            <a href="7778.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+            <div class="gallery-title">Dish Title 11</div>
+            <div class="gallery-desc">Insert description for photo 11 here.</div>
+            <a href="Photos 11.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
           </div>
         </div>
 
-        <!-- Food Card 5 -->
+        <!-- Food Card 12 -->
         <div class="gallery-card">
-          <a href="7691.jpg" target="_blank">
-            <img src="7691.jpg" alt="On Board Presentation" loading="lazy" width="1200" height="800">
+          <a href="Photos 12.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 12.jpeg" alt="Culinary Dish 12" loading="lazy" width="800" height="800">
+            </div>
           </a>
           <div class="gallery-card-body">
-            <div class="gallery-title">Destination Galley Ready</div>
-            <div class="gallery-desc">Seamless integration into high-end private charters and luxury coastal itineraries[span_9](start_span)[span_9](end_span).</div>
-            <a href="7691.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+            <div class="gallery-title">Dish Title 12</div>
+            <div class="gallery-desc">Insert description for photo 12 here.</div>
+            <a href="Photos 12.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
           </div>
         </div>
 
-        <!-- Food Card 6 -->
+        <!-- Food Card 13 -->
         <div class="gallery-card">
-          <a href="7680.jpg" target="_blank">
-            <img src="7680.jpg" alt="Active Fishing Sourcing" loading="lazy" width="1200" height="800">
+          <a href="Photos 13.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 13.jpeg" alt="Culinary Dish 13" loading="lazy" width="800" height="800">
+            </div>
           </a>
           <div class="gallery-card-body">
-            <div class="gallery-title">Pelagic Sport Fishing</div>
-            <div class="gallery-desc">Sourcing fresh sportfish directly from the deck for immediate preparation on board[span_10](start_span)[span_10](end_span).</div>
-            <a href="7680.jpg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+            <div class="gallery-title">Dish Title 13</div>
+            <div class="gallery-desc">Insert description for photo 13 here.</div>
+            <a href="Photos 13.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 14 -->
+        <div class="gallery-card">
+          <a href="Photos 14.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 14.jpeg" alt="Culinary Dish 14" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 14</div>
+            <div class="gallery-desc">Insert description for photo 14 here.</div>
+            <a href="Photos 14.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 15 -->
+        <div class="gallery-card">
+          <a href="Photos 15.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 15.jpeg" alt="Culinary Dish 15" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 15</div>
+            <div class="gallery-desc">Insert description for photo 15 here.</div>
+            <a href="Photos 15.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 16 -->
+        <div class="gallery-card">
+          <a href="Photos 16.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 16.jpeg" alt="Culinary Dish 16" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 16</div>
+            <div class="gallery-desc">Insert description for photo 16 here.</div>
+            <a href="Photos 16.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 17 -->
+        <div class="gallery-card">
+          <a href="Photos 17.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 17.jpeg" alt="Culinary Dish 17" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 17</div>
+            <div class="gallery-desc">Insert description for photo 17 here.</div>
+            <a href="Photos 17.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 18 -->
+        <div class="gallery-card">
+          <a href="Photos 18.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 18.jpeg" alt="Culinary Dish 18" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 18</div>
+            <div class="gallery-desc">Insert description for photo 18 here.</div>
+            <a href="Photos 18.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 19 -->
+        <div class="gallery-card">
+          <a href="Photos 19.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 19.jpeg" alt="Culinary Dish 19" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 19</div>
+            <div class="gallery-desc">Insert description for photo 19 here.</div>
+            <a href="Photos 19.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 20 -->
+        <div class="gallery-card">
+          <a href="Photos 20.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 20.jpeg" alt="Culinary Dish 20" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 20</div>
+            <div class="gallery-desc">Insert description for photo 20 here.</div>
+            <a href="Photos 20.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 21 -->
+        <div class="gallery-card">
+          <a href="Photos 21.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 21.jpeg" alt="Culinary Dish 21" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 21</div>
+            <div class="gallery-desc">Insert description for photo 21 here.</div>
+            <a href="Photos 21.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 22 -->
+        <div class="gallery-card">
+          <a href="Photos 22.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 22.jpeg" alt="Culinary Dish 22" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 22</div>
+            <div class="gallery-desc">Insert description for photo 22 here.</div>
+            <a href="Photos 22.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 23 -->
+        <div class="gallery-card">
+          <a href="Photos 23.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 23.jpeg" alt="Culinary Dish 23" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 23</div>
+            <div class="gallery-desc">Insert description for photo 23 here.</div>
+            <a href="Photos 23.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 24 -->
+        <div class="gallery-card">
+          <a href="Photos 24.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 24.jpeg" alt="Culinary Dish 24" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 24</div>
+            <div class="gallery-desc">Insert description for photo 24 here.</div>
+            <a href="Photos 24.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 25 -->
+        <div class="gallery-card">
+          <a href="Photos 25.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 25.jpeg" alt="Culinary Dish 25" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 25</div>
+            <div class="gallery-desc">Insert description for photo 25 here.</div>
+            <a href="Photos 25.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 26 -->
+        <div class="gallery-card">
+          <a href="Photos 26.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 26.jpeg" alt="Culinary Dish 26" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 26</div>
+            <div class="gallery-desc">Insert description for photo 26 here.</div>
+            <a href="Photos 26.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 27 -->
+        <div class="gallery-card">
+          <a href="Photos 27.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 27.jpeg" alt="Culinary Dish 27" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 27</div>
+            <div class="gallery-desc">Insert description for photo 27 here.</div>
+            <a href="Photos 27.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 28 -->
+        <div class="gallery-card">
+          <a href="Photos 28.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 28.jpeg" alt="Culinary Dish 28" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 28</div>
+            <div class="gallery-desc">Insert description for photo 28 here.</div>
+            <a href="Photos 28.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 29 -->
+        <div class="gallery-card">
+          <a href="Photos 29.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 29.jpeg" alt="Culinary Dish 29" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 29</div>
+            <div class="gallery-desc">Insert description for photo 29 here.</div>
+            <a href="Photos 29.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 30 -->
+        <div class="gallery-card">
+          <a href="Photos 30.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 30.jpeg" alt="Culinary Dish 30" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 30</div>
+            <div class="gallery-desc">Insert description for photo 30 here.</div>
+            <a href="Photos 30.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 31 -->
+        <div class="gallery-card">
+          <a href="Photos 31.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 31.jpeg" alt="Culinary Dish 31" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 31</div>
+            <div class="gallery-desc">Insert description for photo 31 here.</div>
+            <a href="Photos 31.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 32 -->
+        <div class="gallery-card">
+          <a href="Photos 32.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 32.jpeg" alt="Culinary Dish 32" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 32</div>
+            <div class="gallery-desc">Insert description for photo 32 here.</div>
+            <a href="Photos 32.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
+          </div>
+        </div>
+
+        <!-- Food Card 33 -->
+        <div class="gallery-card">
+          <a href="Photos 33.jpeg" target="_blank">
+            <div class="square-img-container">
+              <img src="Photos 33.jpeg" alt="Culinary Dish 33" loading="lazy" width="800" height="800">
+            </div>
+          </a>
+          <div class="gallery-card-body">
+            <div class="gallery-title">Dish Title 33</div>
+            <div class="gallery-desc">Insert description for photo 33 here.</div>
+            <a href="Photos 33.jpeg" target="_blank" class="photo-link">View Full-Size Photo →</a>
           </div>
         </div>
 
@@ -574,17 +771,6 @@
     </section>
 
   </div>
-
-  <script>
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      if (currentTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    }
-  </script>
 
 </body>
 </html>

@@ -177,13 +177,11 @@
       font-weight: 600;
     }
 
-    /* Personal Photos Grid (1-8) - Perfectly Balanced 2x4 Grid */
+    /* Personal Photos Grid (1-8) - Hard Locked Square Frame */
     .personal-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
-      position: sticky;
-      top: 30px;
     }
 
     .square-card {
@@ -200,15 +198,15 @@
       border-color: var(--accent-copper);
     }
 
-    .square-img-container {
+    .personal-img-container {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      height: 190px;
       overflow: hidden;
       border-radius: 4px;
       background: #090c10;
     }
 
-    .square-img-container img {
+    .personal-img-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -217,7 +215,7 @@
       transition: transform 0.5s ease;
     }
 
-    .square-img-container img:hover {
+    .personal-img-container img:hover {
       transform: scale(1.05);
     }
 
@@ -249,6 +247,27 @@
     .gallery-card:hover {
       transform: translateY(-4px);
       border-color: var(--accent-copper);
+    }
+
+    .gallery-img-container {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #090c10;
+    }
+
+    .gallery-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-img-container img:hover {
+      transform: scale(1.05);
     }
 
     .gallery-card-body {
@@ -299,9 +318,6 @@
       }
       .content-split {
         grid-template-columns: 1fr;
-      }
-      .personal-grid {
-        position: static;
       }
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -378,73 +394,7 @@
         </section>
       </main>
 
-      <!-- Personal Photos 1-8 Grid (2 columns x 4 rows) -->
+      <!-- Personal Photos 1-8 Grid -->
       <aside>
         <div class="personal-grid">
-          <div class="square-card"><a href="1.jpg" target="_blank"><div class="square-img-container"><img src="1.jpg" alt="Photo 1" loading="lazy"></div></a></div>
-          <div class="square-card"><a href="2.jpg" target="_blank"><div class="square-img-container"><img src="2.jpg" alt="Photo 2" loading="lazy"></div></a></div>
-          <div class="square-card"><a href="3.jpg" target="_blank"><div class="square-img-container"><img src="3.jpg" alt="Photo 3" loading="lazy"></div></a></div>
-          <div class="square-card"><a href="4.jpg" target="_blank"><div class="square-img-container"><img src="4.jpg" alt="Photo 4" loading="lazy"></div></a></div>
-          <div class="square-card"><a href="5.jpg" target="_blank"><div class="square-img-container"><img src="5.jpg" alt="Photo 5" loading="lazy"></div></a></div>
-          <div class="square-card"><a href="6.jpg" target="_blank"><div class="square-img-container"><img src="6.jpg" alt="Photo 6" loading="lazy"></div></a></div>
-          <div class="square-card"><a href="7.jpg" target="_blank"><div class="square-img-container"><img src="7.jpg" alt="Photo 7" loading="lazy"></div></a></div>
-          <div class="square-card"><a href="8.jpg" target="_blank"><div class="square-img-container"><img src="8.jpg" alt="Photo 8" loading="lazy"></div></a></div>
-        </div>
-      </aside>
-
-    </div>
-
-    <!-- Second Specs Bundle -->
-    <div class="specs-grid">
-      <div class="spec-card">Based in Ho Chi Minh City (Saigon)</div>
-      <div class="spec-card">Rapid-Response Regional Availability</div>
-      <div class="spec-card">Global Relocations & Indian Ocean</div>
-      <div class="spec-card">
-        <ul>
-          <li>Muay Thai & Tennis</li>
-          <li>Adventure Motorcycling</li>
-        </ul>
-      </div>
-      <div class="spec-card">Short-Notice Relief Contracts</div>
-    </div>
-
-    <!-- Culinary Execution Gallery -->
-    <section class="gallery-section">
-      <h2>Culinary Execution Gallery</h2>
-      <p style="color: var(--text-muted); font-style: italic;">A curated selection of plated dishes, coastal sourcing, and custom guest dining executed on board.</p>
-
-      <div class="gallery-grid">
-        <!-- Food Cards 9 through 33 -->
-        <div class="gallery-card"><a href="9.jpg" target="_blank"><div class="square-img-container"><img src="9.jpg" alt="Dish 9" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 9</div><div class="gallery-desc">Insert description for photo 9 here.</div><a href="9.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="10.jpg" target="_blank"><div class="square-img-container"><img src="10.jpg" alt="Dish 10" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 10</div><div class="gallery-desc">Insert description for photo 10 here.</div><a href="10.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="11.jpg" target="_blank"><div class="square-img-container"><img src="11.jpg" alt="Dish 11" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 11</div><div class="gallery-desc">Insert description for photo 11 here.</div><a href="11.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="12.jpg" target="_blank"><div class="square-img-container"><img src="12.jpg" alt="Dish 12" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 12</div><div class="gallery-desc">Insert description for photo 12 here.</div><a href="12.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="13.jpg" target="_blank"><div class="square-img-container"><img src="13.jpg" alt="Dish 13" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 13</div><div class="gallery-desc">Insert description for photo 13 here.</div><a href="13.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="14.jpg" target="_blank"><div class="square-img-container"><img src="14.jpg" alt="Dish 14" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 14</div><div class="gallery-desc">Insert description for photo 14 here.</div><a href="14.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="15.jpg" target="_blank"><div class="square-img-container"><img src="15.jpg" alt="Dish 15" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 15</div><div class="gallery-desc">Insert description for photo 15 here.</div><a href="15.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="16.jpg" target="_blank"><div class="square-img-container"><img src="16.jpg" alt="Dish 16" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 16</div><div class="gallery-desc">Insert description for photo 16 here.</div><a href="16.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="17.jpg" target="_blank"><div class="square-img-container"><img src="17.jpg" alt="Dish 17" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 17</div><div class="gallery-desc">Insert description for photo 17 here.</div><a href="17.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="18.jpg" target="_blank"><div class="square-img-container"><img src="18.jpg" alt="Dish 18" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 18</div><div class="gallery-desc">Insert description for photo 18 here.</div><a href="18.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="19.jpg" target="_blank"><div class="square-img-container"><img src="19.jpg" alt="Dish 19" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 19</div><div class="gallery-desc">Insert description for photo 19 here.</div><a href="19.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="20.jpg" target="_blank"><div class="square-img-container"><img src="20.jpg" alt="Dish 20" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 20</div><div class="gallery-desc">Insert description for photo 20 here.</div><a href="20.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="21.jpg" target="_blank"><div class="square-img-container"><img src="21.jpg" alt="Dish 21" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 21</div><div class="gallery-desc">Insert description for photo 21 here.</div><a href="21.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="22.jpg" target="_blank"><div class="square-img-container"><img src="22.jpg" alt="Dish 22" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 22</div><div class="gallery-desc">Insert description for photo 22 here.</div><a href="22.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="23.jpg" target="_blank"><div class="square-img-container"><img src="23.jpg" alt="Dish 23" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 23</div><div class="gallery-desc">Insert description for photo 23 here.</div><a href="23.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="24.jpg" target="_blank"><div class="square-img-container"><img src="24.jpg" alt="Dish 24" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 24</div><div class="gallery-desc">Insert description for photo 24 here.</div><a href="24.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="25.jpg" target="_blank"><div class="square-img-container"><img src="25.jpg" alt="Dish 25" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 25</div><div class="gallery-desc">Insert description for photo 25 here.</div><a href="25.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="26.jpg" target="_blank"><div class="square-img-container"><img src="26.jpg" alt="Dish 26" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 26</div><div class="gallery-desc">Insert description for photo 26 here.</div><a href="26.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="27.jpg" target="_blank"><div class="square-img-container"><img src="27.jpg" alt="Dish 27" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 27</div><div class="gallery-desc">Insert description for photo 27 here.</div><a href="27.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="28.jpg" target="_blank"><div class="square-img-container"><img src="28.jpg" alt="Dish 28" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 28</div><div class="gallery-desc">Insert description for photo 28 here.</div><a href="28.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="29.jpg" target="_blank"><div class="square-img-container"><img src="29.jpg" alt="Dish 29" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 29</div><div class="gallery-desc">Insert description for photo 29 here.</div><a href="29.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="30.jpg" target="_blank"><div class="square-img-container"><img src="30.jpg" alt="Dish 30" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 30</div><div class="gallery-desc">Insert description for photo 30 here.</div><a href="30.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="31.jpg" target="_blank"><div class="square-img-container"><img src="31.jpg" alt="Dish 31" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 31</div><div class="gallery-desc">Insert description for photo 31 here.</div><a href="31.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="32.jpg" target="_blank"><div class="square-img-container"><img src="32.jpg" alt="Dish 32" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 32</div><div class="gallery-desc">Insert description for photo 32 here.</div><a href="32.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-        <div class="gallery-card"><a href="33.jpg" target="_blank"><div class="square-img-container"><img src="33.jpg" alt="Dish 33" loading="lazy"></div></a><div class="gallery-card-body"><div class="gallery-title">Dish Title 33</div><div class="gallery-desc">Insert description for photo 33 here.</div><a href="33.jpg" target="_blank" class="photo-link">View Full Size →</a></div></div>
-
-      </div>
-    </section>
-
-  </div>
-
-</body>
-</html>
+          <div class="square-card"><a href="1

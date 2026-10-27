@@ -20,7 +20,6 @@
       --text-muted: #9ba3af;
       --accent-copper: #d48b5f;
       --accent-copper-hover: #e09d73;
-      --accent-gold: #c5a059;
       --border-subtle: #263449;
       --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -67,7 +66,6 @@
     }
 
     .subtitle {
-      font-family: var(--font-sans);
       font-size: 1.25rem;
       color: var(--accent-copper);
       font-weight: 400;
@@ -83,7 +81,7 @@
       font-style: italic;
     }
 
-    /* Specs Grid (5 Columns - Sleek Editorial Cards) */
+    /* Specs Grid (5 Columns) */
     .specs-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -126,14 +124,14 @@
     /* Content Split Layout */
     .content-split {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
+      grid-template-columns: 1fr 1fr;
       gap: 50px;
       margin-bottom: 60px;
       align-items: start;
     }
 
     section {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     h2 {
@@ -179,11 +177,13 @@
       font-weight: 600;
     }
 
-    /* Personal Photos Grid (1-8) */
+    /* Personal Photos Grid (1-8) - Perfectly Balanced 2x4 Grid */
     .personal-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
+      position: sticky;
+      top: 30px;
     }
 
     .square-card {
@@ -300,6 +300,9 @@
       .content-split {
         grid-template-columns: 1fr;
       }
+      .personal-grid {
+        position: static;
+      }
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -346,7 +349,7 @@
       <div class="spec-card">Passport: Canadian</div>
     </div>
 
-    <!-- Content Split -->
+    <!-- Content Split: Profile Text Left, 8 Photos Right -->
     <div class="content-split">
       
       <main>
@@ -375,7 +378,7 @@
         </section>
       </main>
 
-      <!-- Personal Photos 1-8 Grid -->
+      <!-- Personal Photos 1-8 Grid (2 columns x 4 rows) -->
       <aside>
         <div class="personal-grid">
           <div class="square-card"><a href="1.jpg" target="_blank"><div class="square-img-container"><img src="1.jpg" alt="Photo 1" loading="lazy"></div></a></div>
